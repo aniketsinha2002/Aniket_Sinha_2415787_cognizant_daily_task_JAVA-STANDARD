@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Demonstration</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        background-color: #e0e0e0;
+        width: 85%;
+        margin: 20px auto;
+        font-family: "Verdana", sans-serif;
+      }
+      .interactive-box {
+        width: 120px;
+        height: 120px;
+        margin: 8px;
+        display: inline-block;
+        background-color: #ff9800;
+      }
+      .faq {
+        cursor: pointer;
+        color: darkblue;
+        font-weight: bold;
+      }
+      .response {
+        display: none;
+        padding: 8px;
+        border-left: 3px solid #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>jQuery Setup & Button Interaction</h2>
+    <button id="modifyTextBtn">Click to update the text below</button>
+    <p id="modifiableText">Original paragraph content.</p>
+
+    <h2>Selectors & Styling</h2>
+    <p>Paragraph One</p>
+    <p>Paragraph Two</p>
+    <div class="interactive-box"></div>
+    <div class="interactive-box"></div>
+    <div class="interactive-box"></div>
+
+    <h2>Events & Hover Effect</h2>
+    <button id="popupAlert">Press me</button>
+    <p id="hoverParagraph">Hover here for a surprise!</p>
+
+    <h2>Animations & Effects</h2>
+    <button id="fadeImgBtn">Make Image Fade</button>
+    <img
+      id="imageElement"
+      src="https://cdn.siasat.com/wp-content/uploads/2020/03/Cognizant-Chennai.jpg"
+      style="height: 220px"
+      alt="Demo Image"
+    />
+
+    <h3>Expandable Menu</h3>
+    <button id="toggleMenuBtn">Open/Close Menu</button>
+    <div id="hiddenMenu" style="display: none">
+      This menu slides open and closed dynamically!
+    </div>
+
+    <h2>AJAX Interaction</h2>
+    <button id="loadDataBtn">Retrieve Data</button>
+    <div id="displayData"></div>
+
+    <script>
+      $(document).ready(function () {
+        alert("Welcome to the jQuery demo page!");
+
+        $("#modifyTextBtn").click(() => {
+          $("#modifiableText").text("This text has now changed!");
+        });
+
+        $("p").css("color", "green");
+        $(".interactive-box").css("border", "2px solid black");
+
+        $("#popupAlert").click(() => alert("You clicked the button!"));
+        $("#hoverParagraph").hover(
+          function () {
+            $(this).text("You hovered over this!");
+          },
+          function () {
+            $(this).text("Hover here for a surprise!");
+          }
+        );
+
+        $("#fadeImgBtn").click(() => $("#imageElement").fadeOut());
+        $("#toggleMenuBtn").click(() => $("#hiddenMenu").slideToggle());
+
+        $("#loadDataBtn").click(() => {
+          $.get("https://jsonplaceholder.typicode.com/posts/2", (data) => {
+            $("#displayData").html(
+              `<strong>${data.title}</strong><p>${data.body}</p>`
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

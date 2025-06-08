@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.welcome {
+  text-align: center;
+  background-color: #0077ff;
+  color: white;
+  padding: 20px;
+}
+
+.pricing {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.plan {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plan h3 {
+  color: #0077ff;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan ul li {
+  padding: 5px;
+}
+
+.content {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
